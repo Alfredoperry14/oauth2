@@ -39,9 +39,6 @@ public class Oauth2Application {
                 .requestMatchers("/", "/error", "/webjars/**").permitAll()
                 .anyRequest().authenticated()
             )
-            .exceptionHandling((exceptions) -> exceptions
-                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-            )
 			.oauth2Login(Customizer.withDefaults())
             // Configure CSRF to use a Cookie-based token repository.
             .csrf(csrf -> csrf
